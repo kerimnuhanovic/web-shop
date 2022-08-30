@@ -1,0 +1,270 @@
+
+/*
+main {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+}
+.card-title {
+    font-size: 1rem;
+    text-align: center;
+}
+.card {
+    width: 7rem;
+    height: 8rem;
+    max-width: 100%;
+}
+.slika {
+    height: 4rem;
+    object-fit: contain;
+}
+.card:hover {
+    cursor:pointer;
+    transform: scale(1.03);
+}
+
+.pog-trg {
+    font-size: 0.55rem;
+    display: none;
+}
+.c-text {
+    display: none;
+}*/
+
+main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+
+    background-color: #ecf0f1;
+}
+.card {
+    width: 8rem;
+}
+
+.card:hover {
+    cursor:pointer;
+    transform: scale(1.03);
+}
+
+.slika {
+    height: 4rem;
+    object-fit: contain;
+}
+.c-button {
+    font-size: 2vw;
+    background-color: rgb(35, 66, 89);
+}
+
+c-button:hover {
+    background-color: rgb(125, 183, 227);
+}
+.card-text {
+    font-weight: bolder;
+    color: rgb(171, 103, 7);
+    font-size: 3vw;
+}
+.trg-bar {
+    margin: 0;
+    width: 100%;
+    background-color: rgb(14, 52, 115);
+}
+.card-title {
+    font-size: 3vw;
+}
+.select-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+form {
+    width: 70%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.kategorije-dugmic {
+    font-size: 2vw;
+    background-color: #00B7FF;
+    border: 1px solid #ecf0f1
+}
+
+.kategorije-dugmic:hover {
+    background-color: #00B7FF;
+
+    border: 1px solid #ecf0f1;
+}
+
+.search-p {
+    width: 60%;
+    font-size: 3vw;
+    border: 1px solid #00B7FF;
+    outline-color: #00B7FF;
+}
+.search-b {
+    width: 20%;
+    font-size: 2vw;
+
+    background-color: #00B7FF;
+}
+
+
+.paginacija {
+    display: flex;
+    justify-content: center;
+}
+
+
+@media (min-width: 576px) {
+    body {
+        font-size: 2vw;
+    }
+    navbar p {
+        font-size:2vw;
+    }
+    /*
+        .card {
+            width: 10rem;
+        }
+
+
+        .pog-trg {
+            display: block;
+        }
+        .c-text {
+            display: block;
+            text-align: center;
+            font-size: 2vw;
+        }*/
+    .search-p {
+        font-size: 2vw;
+        width: 50%;
+    }
+    .search-b {
+        width: 15%;
+    }
+    .card {
+        width: 10rem;
+    }
+    .c-button {
+        font-size: 1.5vw;
+    }
+    .card-title {
+        font-size: 2vw;
+    }
+    .card-text {
+        font-size: 2vw;
+    }
+}
+
+
+@media (min-width: 768px) {
+    body {
+        font-size: 1.5vw;
+    }
+    navbar p {
+        font-size:1.5vw;
+    }
+    .search-p {
+        font-size: 1.5vw;
+    }
+    .search-b {
+        font-size: 1.5vw;
+        width: 10%;
+    }
+    .kategorije-dugmic {
+        font-size: 1.5vw;
+    }
+    .c-button {
+        font-size: 1vw;
+    }
+    .card-title {
+        font-size: 1.5vw;
+    }
+    .card-text {
+        font-size: 1.5vw;
+    }
+
+    /*
+        .card {
+            width: 12rem;
+            height: 10rem;
+        }
+        .slika {
+            height: 6rem;
+        }
+        .c-text {
+            font-size: 1.5vw;
+        }*/
+}
+@media (min-width: 992px) {
+    body {
+        font-size: 1vw;
+    }
+
+    navbar p {
+        font-size: 1vw;
+    }
+
+    /*
+        .card {
+            width: 15rem;
+            height: 18rem;
+
+        }
+
+        .slika {
+            height: 10rem;
+        }
+
+        main {
+            justify-content: center;
+
+        }
+
+        .c-text {
+            font-size: 1vw;
+        }
+
+        .pog-trg {
+            font-size: 1vw;
+        }
+    */
+    .search-p {
+        font-size: 1vw;
+        width: 40%;
+    }
+
+    .search-b {
+        font-size: 1vw;
+    }
+
+    .kategorije-dugmic {
+        font-size: 1vw;
+    }
+    .card {
+        width: 12rem;
+    }
+    .card-title {
+        font-size: 1vw;
+    }
+    .card-text {
+        font-size: 1vw;
+    }
+
+
+}
+
+@media (min-width: 1200px) {
+    .card {
+        width: 15rem;
+    }
+    .slika {
+        height: 9rem;
+    }
+}

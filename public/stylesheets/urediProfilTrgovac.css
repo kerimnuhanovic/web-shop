@@ -1,0 +1,198 @@
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #ecf0f1;
+
+
+}
+.okvir {
+    /*width: 30%;*/
+    width: 60%;
+    border-radius: 5px;
+    border: 1px solid #00B7FF;
+    background-color: rgba(255,255,255,0.5);
+    margin-top: -40px;
+    z-index: 1;
+}
+.image {
+    z-index: 2;
+}
+img {
+    width: 80px;
+    height: 80px;
+}
+.forma1 {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+
+}
+
+.forma1 input {
+    border-radius: 5%;
+    width: 70%;
+    outline-color: #00B7FF;
+    border: 1px solid #00B7FF;
+}
+
+.div-forme {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.div-forme input {
+    align-self: flex-end;
+}
+
+.div-forme3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.div-forme3 input {
+    width: 100%;
+}
+.div-forme3 button {
+    width: 100%;
+}
+
+.form-control {
+    font-size: 2vw;
+}
+.submit-forme {
+    display: flex;
+    justify-content: center;
+}
+.submit-forme input {
+    border-radius: 0;
+}
+.forma2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.btn {
+    background-color: rgb(10, 174, 245);
+    font-size: 2.5vw;
+}
+.forma3 {
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+
+
+.input-poslovnice {
+    width: 65%;
+}
+.spasi-promjene {
+
+}
+
+
+label {
+    font-size: 2.5vw;
+
+}
+
+
+input {
+    font-size: 2.5vw;
+}
+
+@media (min-width: 576px) {
+
+    img {
+        width: 96px;
+        height: 96px;
+    }
+    .okvir {
+        margin-top: -48px;
+    }
+
+    label {
+        font-size: 2vw;
+    }
+
+    input {
+        font-size: 2vw;
+    }
+    .btn {
+        font-size: 2vw;
+    }
+}
+
+@media (min-width: 768px) {
+
+    .okvir {
+        width: 50%;
+    }
+    .btn {
+        font-size: 1.5vw;
+    }
+    .form-control {
+        font-size: 1.5vw;
+    }
+    img {
+        width: 96px;
+        height: 96px;
+    }
+    .okvir {
+        margin-top: -48px;
+    }
+
+    label {
+        font-size: 1.5vw;
+
+    }
+
+    input {
+        font-size: 1.5vw;
+    }
+
+}
+@media (min-width: 992px) {
+
+    .okvir {
+        width: 40%;
+    }
+    .btn {
+        font-size: 1vw;
+    }
+    .form-control {
+        font-size: 1vw;
+    }
+
+    label {
+        font-size: 1vw;
+    }
+
+    input {
+        font-size: 1vw;
+    }
+
+}
+
+@media (min-width: 1200px) {
+    img {
+        width:100px;
+        height:100px;
+    }
+
+    input {
+        font-size: 1vw;
+    }
+    .btn {
+        font-size: 1vw;
+    }
+}

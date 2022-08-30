@@ -1,0 +1,339 @@
+
+.select-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.obojeni-btn {
+    background-color: #00B7FF;
+    font-size: 3vw;
+}
+
+.podaci-trgovca {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    order: 2;
+    /*width: 33%;*/
+}
+
+.podaci-trgovca p {
+    font-size: 3vw;
+    font-weight: bolder;
+
+}
+.container-fluid{
+    padding: 0;
+}
+
+.naziv-trgovine {
+    margin-bottom: 0;
+    order: 1;
+
+}
+.dugmici {/*
+    width: 33%;*/
+    order: 3;
+}
+
+
+main {
+    display: flex;
+    flex-direction: column;
+
+    background-color: #ecf0f1;
+}
+
+.komentar {
+    display: flex;
+    flex-direction: row;
+
+
+
+}
+
+img {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid #00B7FF;
+}
+
+.okvir-komentara {
+    background-color: white;
+    width: 75%;
+    border-radius: 5%;
+}
+.okvir-komentara p {
+    font-size: 2.5vw;
+}
+.ocijeni-trgovca {
+    font-size: 2.5vw;
+}
+
+.input-komentara {
+    width: 60%;
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    border-bottom: 1px solid #00B7FF;
+    outline: none;
+}
+
+.rate {
+    display: flex;
+    align-items: center;
+
+}
+
+.objavi-btn {
+    font-size: 2vw;
+}
+
+/* kod vezan za zvjezdice kopiran sa interneta */
+.stars {
+    width:auto;
+    position:relative;
+    font-size:20px;
+    border:2px outset gray;
+    border-radius:5px;
+    background-color:#00B7FF;
+    margin:5px;
+}
+/*
+the BEFORE:pseudo element. This will represent the number of stars in the actual rating.
+it floats above the AFTER element.
+*/
+.stars:BEFORE {
+    content:"★★★★★";
+    position:absolute;
+    overflow:hidden;
+    z-index:1;
+    left:0px;
+    top:0px;
+    /* everything below here is optional. */
+    color:#FC0;
+    text-shadow:0px 1px 0 #000, 0 -1px 0 #fff;
+}
+/*
+the AFTER:pseudo element. This will represent the total possible  stars available. It is set to relative to ensure it takes up the proper amount of space.
+*/
+.stars:AFTER {
+    content:"★★★★★";
+    position:relative;
+    color:#fff;
+}
+/*
+if including user rating controls, float the AFTER element.
+*/
+.stars.rate:AFTER {
+    position:absolute;
+    left:0px;
+}
+/*
+default state for the  user rating controls. invisible, but floating above the BEFORE and AFTER elements
+*/
+.stars.rate > A {
+    color:transparent;
+    text-decoration:none;
+    position:relative;
+    z-index:2;
+}
+/*
+if the user is floating thier mouse above the rating, hide the display stars.
+*/
+.stars.rate:HOVER:BEFORE,
+.stars.rate:HOVER:AFTER {
+    display:none;
+}
+/*
+turn all sthe start "ON" by default.
+*/
+.stars.rate:HOVER > A {
+    color:#FC0;
+    text-shadow:0px 1px 0 #000, 0 -1px 0 #fff;
+}
+/*
+optional style for the specific star control a user is directly above.
+*/
+.stars.rate:HOVER > A:HOVER {
+    color:#FC0;
+    text-shadow:0px 2px 0 #000, 0 -1px 0 #fff;
+    top:-1px;
+}
+/*
+turn "OFF" all stars after the one the user is hovering over.
+*/
+.stars.rate >A:HOVER ~ A {
+    color:#fff;
+    text-shadow:none;
+}
+/*
+  all the styles below are used to display the apropriate portion of the BEFORE element based on percentage rating. unfortunately you will need to create a specific rule for each level of granularity you wish to display.
+
+
+  if the CSS3 attr() function proposal ever gets implimented
+  the remaining rules could all be replaced with the following:
+  .stars[data-percent]:BEFORE {
+    width:attr(data-percent,%,0);
+  }
+
+*/
+.stars:NOT([data-percent]):BEFORE,
+.stars[data-percent="0"]:BEFORE {
+    display:none;
+}
+/* 1/2 a star */
+.stars[data-percent="10"]:BEFORE {
+    width:10%;
+}
+/* 1 star */
+.stars[data-percent="20"]:BEFORE {
+    width:20%;
+}
+/* 1 & 1/2 stars */
+.stars[data-percent="30"]:BEFORE {
+    width:30%;
+}
+/* etc. */
+.stars[data-percent="40"]:BEFORE {
+    width:40%;
+}
+.stars[data-percent="50"]:BEFORE {
+    width:50%;
+}
+.stars[data-percent="60"]:BEFORE {
+    width:60%;
+}
+.stars[data-percent="70"]:BEFORE {
+    width:70%;
+}
+.stars[data-percent="80"]:BEFORE {
+    width:80%;
+}
+.stars[data-percent="90"]:BEFORE {
+    width:90%;
+}
+.stars[data-percent="100"]:BEFORE {
+    width:100%;
+}
+
+
+
+/* ************************************************** */
+
+@media (min-width: 576px) {
+    body {
+        font-size: 2vw;
+    }
+
+
+    .podaci-trgovca p {
+        font-size: 2vw;
+    }
+    .obojeni-btn {
+        font-size: 2vw;
+    }
+    img {
+        width: 35px;
+        height: 35px;
+    }
+
+    .okvir-komentara {
+        width: 90%;
+    }
+    .okvir-komentara p {
+        font-size: 2vw;
+    }
+    .ocijeni-trgovca {
+        font-size: 2vw;
+    }
+
+    .input-komentara {
+        width: 75%;
+    }
+}
+
+
+@media (min-width: 768px) {
+    body {
+        font-size: 1.5vw;
+    }
+
+    .podaci-trgovca p {
+        font-size: 1.5vw;
+    }
+    .obojeni-btn {
+        font-size: 1.5vw;
+    }
+    img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .okvir-komentara p {
+        font-size: 1.5vw;
+    }
+    .ocijeni-trgovca {
+        font-size: 1.5vw;
+    }
+
+}
+@media (min-width: 992px) {
+    body {
+        font-size: 1vw;
+    }
+
+    .select-bar {
+        flex-direction: row;
+    }
+    .naziv-trgovine {
+        margin-bottom: 0;
+        order: 2;
+
+    }
+    .dugmici {
+        width: 33%;
+        order: 1;
+    }
+    .podaci-trgovca {
+        width: 33%;
+        order: 3;
+    }
+    .podaci-trgovca p {
+        font-size: 1vw;
+    }
+    .obojeni-btn {
+        font-size: 1vw;
+    }
+
+    img {
+        width: 45px;
+        height: 45px;
+    }
+
+    .okvir-komentara p {
+        font-size: 1vw;
+    }
+    .ocijeni-trgovca {
+        font-size: 1vw;
+    }
+
+    .input-komentara {
+        width: 90%;
+    }
+
+}
+
+
+@media (min-width: 1200px) {
+
+    img {
+        width: 50px;
+        height: 50px;
+    }
+}

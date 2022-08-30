@@ -1,0 +1,23 @@
+html, body {
+    width: 100%;
+    height: 100%;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('/images/pomocne/Big_phone_with_cart.jpg');
+    background-position: top;
+    background-size: cover;
+}
+
+.btn {
+    background-color: rgb(35, 66, 89);
+    color: white;
+}
+.btn:hover {
+    color: white;
+    background-color: rgb(125, 183, 227);
+    transform: scale(1.03);
+}

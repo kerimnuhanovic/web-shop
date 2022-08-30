@@ -1,0 +1,81 @@
+main {
+    background-color: #ecf0f1;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.btn {
+    background-color: rgb(10, 174, 245);
+    font-size: 2.5vw;
+}
+table input {
+
+    border-radius: 5px;
+    border: 1px solid #00B7FF;
+}
+
+select {
+    width: 60%;
+    border: 1px solid #00B7FF;
+}
+
+.form-control {
+    font-size: 3vw;
+
+}
+
+.inpt {
+    width: 50%;
+}
+table {
+    font-size: 2.5vw;
+}
+
+@media (min-width: 576px) {
+
+    .btn {
+        font-size: 2vw;
+    }
+    table {
+        font-size: 2vw;
+    }
+    .form-control {
+        font-size: 2vw;
+
+    }
+
+}
+
+@media (min-width: 768px) {
+
+    .btn {
+        font-size: 1.5vw;
+    }
+    table {
+        font-size: 1.5vw;
+    }
+    .form-control {
+        font-size: 1.5vw;
+
+    }
+}
+
+@media (min-width: 992px) {
+
+    .btn {
+        font-size: 1vw;
+    }
+    table {
+        font-size: 1vw;
+    }
+    .form-control {
+        font-size: 1vw;
+
+    }
+
+}
+
+@media (min-width: 1200px) {
+
+}

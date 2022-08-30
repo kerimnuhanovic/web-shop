@@ -1,0 +1,82 @@
+.statusi-naslov {
+    font-weight: lighter;
+    color: #00B7FF;
+}
+.trgovci-naslov {
+    font-weight: lighter;
+    color: #00B7FF;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    background-color: #ecf0f1;
+}
+th {
+    color: #00B7FF;
+
+}
+td {
+    font-weight: bolder;
+    font-size: 2vw;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+tr {
+    border-bottom: 1px solid #00B7FF;
+
+}
+
+tr:nth-child(even) {
+    background-color: #bac0c2;
+}
+
+.red-hover:hover {
+    background-color: #44484a;
+    color: white;
+}
+.username {
+    display: none;
+}
+
+.btn-primary {
+    background-color: #00B7FF;
+}
+.btn {
+    font-size: 2vw;
+}
+table {
+    width: 100%;
+}
+
+@media (min-width: 576px) {
+    .username {
+        display: table-cell;
+    }
+
+}
+
+
+@media (min-width: 768px) {
+    td {
+        font-size: 1.5vw;
+        padding: 10px;
+    }
+    .btn {
+        font-size: 1.5vw;
+    }
+
+}
+@media (min-width: 992px) {
+    td {
+        font-size: 1vw;
+    }
+    .btn {
+        font-size: 1vw;
+    }
+
+}
+@media (min-width: 1200px) {
+
+
+}

@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel='stylesheet' href='/stylesheets/header.css' />
+    <link rel='stylesheet' href='/stylesheets/chatKupac.css' />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var aktivniKupac = undefined;
+        var aktivniKupacUsername = undefined;
+        var dohvaceniKupac = undefined;
+        function pretrazi() {
+            var pretraga = document.getElementById('pretraga').value;
+            pretraga = pretraga.toLowerCase();
+            $.ajax({
+                url: "/chat/dajKupcaZaChat/" + pretraga,
+                type: 'GET',
+            }).done(function(data) {
+                console.log(data);
+                if(data) {
+                    console.log(data);
+                    console.log(data.naziv_kupca);
+                    dohvaceniKupac = data;
+                    console.log(data);
+                    kupci.push({naziv_kupca:data.naziv_kupca,slika_kupca:data.slika_kupca,id:data.id_kupca});
+                    console.log('<div class="box-kontaktiranog-trgovca p-2 mx-2" onclick="prikaziChatSaKupcem('+data.id_kupca+",'"+ data.naziv_kupca+"'"+')">'+
+                        '<img src="/images/profilneSlike/'+data.slika_kupca+'">'+
+                        '<p class="fw-bolder mx-2" id="'+data.naziv_kupca+'">'+data.naziv_kupca+'</p>'+
+                        '</div>');
+                    document.getElementById('lista-kontaktiranih-trgovaca').innerHTML =
+                        //dodat onclick
+                        '<div class="box-kontaktiranog-trgovca p-2 mx-2" onclick="prikaziChatSaKupcem('+data.id_kupca+",'"+ data.naziv_kupca+"'"+')">'+
+                        '<img src="/images/profilneSlike/'+data.slika_kupca+'">'+
+                        '<p class="fw-bolder mx-2" id="'+data.naziv_kupca+'">'+data.naziv_kupca+'</p>'+
+                        '</div>' + document.getElementById('lista-kontaktiranih-trgovaca').innerHTML;
+                }
+                else {
+                    alert('Ne postoji kupac sa tim usernamom');
+
+                }
+                document.getElementById('pretraga').value = '';
+            });
+        }
+        function prikaziChatSaKupcem(idKupca,nazivKupca) {
+            aktivniKupac = idKupca;
+            aktivniKupacUsername = nazivKupca;
+            console.log(aktivniKupacUsername);
+            document.getElementById('btn-slanje-poruke').disabled = false;
+            document.getElementById(nazivKupca).style.color = 'black';
+            document.getElementById('okvir-poruka').innerHTML = '';
+            for(let i = 0;i<poruke.length;i++) {
+
+                if(poruke[i].id_kupca == idKupca) {
+                    if(poruke[i].poruku_poslao === 'trgovac') {
+                        document.getElementById('okvir-poruka').innerHTML += '<div class="okvir-poruke mx-2 mt-2"><p class="mx-2">' +
+                            poruke[i].poruka + '</p></div>';
+                    }
+                    else if(poruke[i].poruku_poslao === 'kupac') {
+                        console.log('da');
+                        document.getElementById('okvir-poruka').innerHTML += '<div class="okvir-poruke2 mx-2 mt-2"><p class="mx-2">' +
+                            poruke[i].poruka + '</p></div>';
+                    }
+                }
+            }
+            var element = document.getElementById('okvir-poruka');
+
+            element.scrollTop = element.scrollHeight;
+        }
+
+    </script>
+
+    <title>WEB shop</title>
+</head>
+<body>
+<div class="header">
+    <header class="container-fluid">
+        <div class="h row pb-3">
+            <h1 class="text-center pt-3 display-3 text-white" style="text-shadow: 2px 2px black">WEB shop</h1><br>
+            <div class="f-cont">
+
+                <p class="fs-6 text-white" style="text-shadow: 1px 1px black">Pretražujte i uživajte u kopovini</p>
+
+            </div>
+        </div>
+    </header>
+
+    <navbar class="okvir-navbara">
+        <!--vase narudzbe, trgovine, urediprofil*/-->
+        <div class="dio prvi border-end border-white" onclick="prikaziDD()">
+            <div class="p-dio">
+                <p class="">Trgovine</p>
+            </div>
+            <ul class="lista-dd" id="lista-dd">
+                <li class="p-3 text-center" onclick="window.location.href= '/trgovac/profil'">Vaša trgovina</li>
+                <li class="p-3 text-center" onclick="window.location.href= '/chat/trgovac'">Chat sa kupcima</li><!--Napravit da trgovac moze pretrazivati ostale trgovine*/-->
+
+            </ul>
+        </div>
+        <div class="dio prvi border-end border-white" onclick="prikaziDD2()">
+            <div class="p-dio">
+                <p class="">Vaši artikli</p>
+            </div>
+            <ul class="lista-dd" id="lista-dd2">
+                <li class="p-3 text-center" onclick="window.location.href= '/trgovac/spisakArtikala'">Spisak artikala</li>
+                <li class="p-3 text-center" onclick="window.location.href= '/trgovac/dodajArtikal'">Dodaj artikal</li>
+
+            </ul>
+        </div>
+        <div class="dio prvi border-end border-white" onclick="window.location.href= '/trgovac/narudzbe'">
+            <div class="p-dio">
+                <p class="">Narudžbe</p>
+            </div>
+        </div>
+        <div class="dio prvi" onclick="prikaziDD3()">
+            <div class="p-dio">
+                <p class="">Profil</p>
+            </div>
+            <ul class="lista-dd" id="lista-dd3">
+                <li class="p-3 text-center" onclick="window.location.href= '/trgovac/urediProfil'">Uredi korisničke podatke</li>
+                <li class="p-3 text-center" onclick="window.location.href= '/trgovac/promijeniLozinku'">Promijeni lozinku</li>
+                <li class="p-3 text-center" onclick="window.location.href= '/trgovac/odjava'">Odjavi se</li>
+            </ul>
+        </div>
+
+    </navbar>
+</div>
+
+
+<main class="mt-3">
+    <div id="box-kontaktiranih" class="mx-4 my-3">
+        <div class="mx-2 my-2 text-center" id="box-pretrage">
+            <input type="text" id="pretraga" class="py-2">
+            <button class="btn btn-primary ms-1" onclick="pretrazi('<%=JSON.stringify(poruke)%>')">Trazi</button>
+        </div>
+        <div id="lista-kontaktiranih-trgovaca">
+            <%for(let i=0;i<kupci.length;i++) {%>
+            <div class="box-kontaktiranog-trgovca p-2 mx-2" onclick="prikaziChatSaKupcem('<%=kupci[i].id%>','<%=kupci[i].naziv_kupca%>')">
+                <img src="/images/profilneSlike/<%=kupci[i].slika_kupca%>" style="object-fit: cover;">
+                <p class="fw-bolder mx-2" id="<%=kupci[i].naziv_kupca%>"><%=kupci[i].naziv_kupca%></p>
+            </div>
+            <%}%>
+        </div>
+    </div>
+
+    <div class="chat-box mt-3 mx-3">
+        <div id="okvir-poruka" class="my-2">
+
+        </div>
+        <div class="slanje-poruke mb-3">
+            <input type="text" id="poruka" placeholder="posalji poruku" class="p-1 mx-1">
+            <button class="btn btn-primary px-2 py-1 mx-1" id="btn-slanje-poruke" disabled
+                    onclick="posaljiPoruku()">Posalji</button>
+        </div>
+    </div>
+
+</main>
+
+<script>
+    var socket = io.connect('ws://localhost:3000');
+    var poruke = undefined;
+    var kupci = undefined;
+    socket.on('sve_poruke', function (d) {
+       poruke = d;
+       console.log(poruke);
+    });
+    socket.on('kontaktirani_kupci', function (d) {
+
+       kupci = d;
+       console.log(kupci);
+    });
+    socket.on('poruka_sa_servera', function (d) {
+
+        poruke.push(d);
+        document.getElementById('okvir-poruka').innerHTML += '<div class="okvir-poruke mx-2 mt-2"><p class="mx-2">' +
+            d.poruka + '</p></div>';
+        var element = document.getElementById('okvir-poruka');
+        element.scrollTop = element.scrollHeight;
+    });
+    socket.on('poruka_sa_servera_od_kupca', function (d) {
+
+       if(aktivniKupacUsername === d.username_kupca) {
+           document.getElementById('okvir-poruka').innerHTML += '<div class="okvir-poruke2 mx-2 mt-2"><p class="mx-2">' +
+               d.poruka + '</p></div>';
+           var element = document.getElementById('okvir-poruka');
+           element.scrollTop = element.scrollHeight;
+       }
+       else {
+           var nadjen = false;
+           console.log('evo kupaca');
+           console.log(kupci);
+           for(let i = 0;i<kupci.length;i++) {
+
+               if(kupci[i].naziv_kupca === d.username_kupca) {
+
+                   nadjen = true;
+                   break;
+               }
+           }
+           if(!nadjen) {
+               /*mozda ga dodat u kupce*/
+               console.log(d);
+               kupci.push({naziv_kupca:d.username_kupca,slika_kupca:d.slika_kupca,id:d.id_kupca});
+               document.getElementById('lista-kontaktiranih-trgovaca').innerHTML =
+                   //dodat onclick
+                   '<div class="box-kontaktiranog-trgovca p-2 mx-2" onclick="prikaziChatSaKupcem('+d.id_kupca+",'"+ d.username_kupca+"'"+')">'+
+                   '<img src="/images/profilneSlike/'+d.slika_kupca+'">'+
+                   '<p class="fw-bolder mx-2" id="'+d.username_kupca+'">'+d.username_kupca+'</p>'+
+                   '</div>' + document.getElementById('lista-kontaktiranih-trgovaca').innerHTML;
+
+           }
+           console.log(d.username_kupca);
+           document.getElementById(d.username_kupca).style.fontWeight = 'bold';
+           document.getElementById(d.username_kupca).style.color = '#00B7FF';
+       }
+       poruke.push(d);
+
+    });
+    function posaljiPoruku() {
+        var tekst = document.getElementById('poruka').value;
+        document.getElementById('poruka').value = '';
+        /*treba poslat idKupca, idTrgovca, username_kupca, username_trgovca, poruku*/
+        console.log("++++++++"+aktivniKupacUsername);
+        var objekat = {
+            id_kupca: aktivniKupac,
+            id_trgovca: '<%=idTrgovca%>',
+            username_kupca: aktivniKupacUsername,
+            username_trgovca: '<%=username%>',
+            naziv_trgovca: '<%=naziv%>',
+            poruka: tekst
+        }
+        console.log(objekat);
+        socket.emit('trgovac_salje_poruku', objekat);
+    }
+
+</script>
+<script src="/javascripts/navbar.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+
+</body>
+</html>

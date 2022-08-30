@@ -1,0 +1,29 @@
+main {
+    display: flex;
+    flex-direction: column;
+    background-color: #ecf0f1;
+}
+
+td {
+    font-weight: bolder;
+}
+th {
+    color: #00B7FF;
+}
+tr {
+    border-bottom: 1px solid #00B7FF;
+}
+tr:nth-child(even) {
+    background-color: #396c80;
+    color: white;
+}
+
+.red-hover:hover {
+    background-color: #0690c7;
+    color: white;
+}
+caption {
+    caption-side: top;
+    color: #00B7FF;
+    font-weight: bolder;
+}

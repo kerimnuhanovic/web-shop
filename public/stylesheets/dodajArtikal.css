@@ -1,0 +1,168 @@
+main {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #ecf0f1;
+}
+
+.okvir {
+    border: 1px solid blue;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid #00B7FF;
+    background-color: rgba(255,255,255,0.5);
+    z-index: 1;
+    margin-top: -35px;
+}
+img {
+    z-index: 2;
+    width: 120px;
+    height: 70px;
+}
+
+.forma1 {
+    display: flex;
+
+    flex-direction: column;
+    margin-top: 35px;
+}
+.forma1 input {
+    border-radius: 5%;
+    width: 70%;
+    outline-color: #00B7FF;
+    border: 1px solid #00B7FF;
+}
+.div-forme {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.forma1 label {
+    font-size: 3vw;
+}
+
+textarea {
+    width: 70%;
+    border: 1px solid #00B7FF;
+}
+.upload {
+    flex-direction: column;
+    align-items: flex-start;
+}
+.upload input{
+    border: 1px solid gray;
+}
+select {
+    border: 1px solid #00B7FF;
+    width: 50%;
+    font-size: 3vw;
+}
+
+
+.btn {
+    background-color: rgb(10, 174, 245);
+    font-size: 3vw;
+
+}
+
+.form-control {
+    font-size: 3vw;
+    width: 100%;
+}
+
+@media (min-width: 576px) {
+
+    .forma1 label {
+        font-size: 2vw;
+    }
+    .btn {
+        font-size: 2vw;
+    }
+    .form-control {
+        font-size: 2vw;
+    }
+    select {
+        font-size: 2vw;
+    }
+    img {
+        width: 120px;
+        height: 70px;
+    }
+    .forma1 {
+        margin-top: 35px;
+    }
+    .okvir {
+        margin-top: -35px;
+    }
+
+}
+
+
+@media (min-width: 768px) {
+
+    .okvir {
+        width: 50%;
+    }
+    .forma1 label {
+        font-size: 1.5vw;
+    }
+    .btn {
+        font-size: 1.5vw;
+    }
+    .form-control {
+        font-size: 1.5vw;
+    }
+    select {
+        font-size: 1.5vw;
+    }
+    img {
+        width: 150px;
+        height: 88px;
+    }
+    .forma1 {
+        margin-top: 44px;
+    }
+    .okvir {
+        margin-top: -44px;
+    }
+
+}
+@media (min-width: 992px) {
+
+    .okvir {
+        width: 40%;
+    }
+    .forma1 label {
+        font-size: 1vw;
+    }
+    .btn {
+        font-size: 1vw;
+    }
+    .form-control {
+        font-size: 1vw;
+    }
+    select {
+        font-size: 1vw;
+    }
+    img {
+        width: 180px;
+        height: 106px;
+    }
+    .forma1 {
+        margin-top: 53px;
+    }
+    .okvir {
+        margin-top: -53px;
+    }
+
+
+}
+
+@media (min-width: 1200px) {
+
+}

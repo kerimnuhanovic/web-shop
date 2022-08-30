@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="/stylesheets/headerAdministrator.css" />
+    <link rel="stylesheet" href="/stylesheets/statistika.css" />
+    <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+    </script>
+
+    <title>WEB shop</title>
+</head>
+<body  onload="prikaziGrafikone('<%=brojKupaca%>',
+        '<%=brojTrgovaca%>', '<%=JSON.stringify(statistikaArtikala)%>',
+        '<%=JSON.stringify(statistikaTrgovaca)%>','<%=JSON.stringify(brojNarudzbi)%>',
+        '<%=JSON.stringify(najprodavanijiArtikli)%>','<%=JSON.stringify(najprodavanijeKategorije)%>')">
+<div class="header">
+    <header class="container-fluid">
+        <div class="h row pb-3">
+            <h1 class="text-center pt-3 display-3 text-white" style="text-shadow: 2px 2px black">WEB shop</h1><br>
+            <div class="f-cont">
+
+                <p class="fs-6 text-white" style="text-shadow: 1px 1px black">Pretražujte i uživajte u kopovini</p>
+
+            </div>
+        </div>
+    </header>
+
+    <navbar class="okvir-navbara">
+        <!--vase narudzbe, trgovine, urediprofil*/-->
+        <div class="dio prvi border-end border-white">
+            <div class="p-dio" onclick="window.location.href = '/administrator/statusiKorisnika'">
+                <p class="">Status korisnika</p>
+            </div>
+
+        </div>
+        <div class="dio prvi border-end border-white">
+            <div class="p-dio">
+                <p class="">Chat</p>
+            </div>
+
+        </div>
+        <div class="dio prvi border-end border-white" onclick="prikaziDD()">
+            <div class="p-dio">
+                <p class="">Statistika</p>
+            </div>
+            <ul class="lista-dd" id="lista-dd">
+                <li class="p-3 text-center" onclick="window.location.href='/administrator/statistika'">Statistika grafički</li>
+                <li class="p-3 text-center" onclick="window.location.href='/administrator/statistikaTabelarno'">Statistika tabelarno</li>
+
+            </ul>
+        </div>
+        <div class="dio prvi">
+            <div class="p-dio">
+                <p class="" onclick="window.location.href = '/administrator/kategorije'">Kategorije</p>
+            </div>
+        </div>
+
+    </navbar>
+</div>
+    <h1 class="text-center mt-2" style="color: #00B7FF; font-weight: lighter">Statistika WEB shopa</h1>
+    <main class="mt-3 py-3">
+        <canvas id="prviGrafikon"></canvas>
+        <canvas id="drugiGrafikon" class="mt-4 mt-lg-0"></canvas>
+        <canvas id="treciGrafikon" class="mt-4 mt-lg-3"></canvas>
+        <canvas id="cetvrtiGrafikon" class="mt-4 mt-lg-3"></canvas>
+        <canvas id="petiGrafikon" class="mt-4 mt-lg-3"></canvas>
+        <canvas id="sestiGrafikon" class="mt-4 mt-lg-3"></canvas>
+    </main>
+
+
+
+<script src="/javascripts/navbarAdmin.js"></script>
+    <script src="/javascripts/grafikoni.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+
+</body>
+</html>

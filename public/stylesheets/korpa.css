@@ -1,0 +1,105 @@
+
+main {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+
+    background-color: #ecf0f1;
+}
+
+.btn {
+    background-color: #00B7FF;
+    font-size: 2.5vw;
+}
+
+.vasa-korpa {
+    color: #00B7FF;
+}
+
+td{
+
+    font-size: 2.5vw;
+}
+
+.posalji-narudzbu {
+    width: 50%;
+}
+
+@media (min-width: 576px) {
+    body {
+        font-size: 2vw;
+    }
+    navbar p {
+        font-size:2vw;
+    }
+    .btn {
+
+        font-size: 2vw;
+    }
+    td{
+
+        font-size: 2vw;
+    }
+}
+
+@media (min-width: 768px) {
+    body {
+        font-size: 1.5vw;
+    }
+    navbar p {
+        font-size:1.5vw;
+    }
+    .btn {
+
+        font-size: 1.5vw;
+    }
+    td{
+
+        font-size: 1.5vw;
+    }
+
+    .posalji-narudzbu {
+        width: 40%;
+    }
+
+}
+@media (min-width: 992px) {
+    body {
+        font-size: 1vw;
+    }
+    navbar p {
+        font-size:1vw;
+    }
+    .btn {
+
+        font-size: 1.2vw;
+    }
+    td{
+
+        font-size: 1.2vw;
+    }
+
+    .posalji-narudzbu {
+        width: 30%;
+    }
+}
+
+
+@media (min-width: 1200px) {
+
+    .posalji-narudzbu {
+        width: 25%;
+
+    }
+    .btn {
+
+        font-size: 1vw;
+    }
+    td{
+
+        font-size: 1vw;
+    }
+}
+

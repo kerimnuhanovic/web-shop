@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Spisak artikala</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel='stylesheet' href='/stylesheets/spisakArtikala.css' />
+    <link rel='stylesheet' href='/stylesheets/header.css' />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        function izbrisiArtikal(id) {
+            $.ajax({
+                url: "/trgovac/izbrisiArtikal/" + id,
+                type: 'POST',
+            }).done(function(data) {
+                alert("Artikal je izbrisan");
+            });
+        }
+    </script>
+</head>
+<body>
+
+<div class="header">
+    <header class="container-fluid">
+        <div class="h row pb-3">
+            <h1 class="text-center pt-3 display-3 text-white" style="text-shadow: 2px 2px black">WEB shop</h1><br>
+            <div class="f-cont">
+
+                <p class="fs-6 text-white" style="text-shadow: 1px 1px black">Pretražujte i uživajte u kopovini</p>
+
+            </div>
+        </div>
+    </header>
+
+    <navbar class="okvir-navbara">
+        <!--vase narudzbe, trgovine, urediprofil*/-->
+        <div class="dio prvi border-end border-white" onclick="prikaziDD()">
+            <div class="p-dio">
+                <p class="">Trgovine</p>
+            </div>
+            <ul class="lista-dd" id="lista-dd">
+                <li class="p-3 text-center" onclick="window.location.href= '/trgovac/profil'">Vaša trgovina</li>
+                <li class="p-3 text-center" onclick="window.location.href= '/chat/trgovac'">Chat sa kupcima</li>
+
+            </ul>
+        </div>
+        <div class="dio prvi border-end border-white" onclick="prikaziDD2()">
+            <div class="p-dio">
+                <p class="">Vaši artikli</p>
+            </div>
+            <ul class="lista-dd" id="lista-dd2">
+                <li class="p-3 text-center" onclick="window.location.href= '/trgovac/spisakArtikala'">Spisak artikala</li>
+                <li class="p-3 text-center" onclick="window.location.href= '/trgovac/dodajArtikal'">Dodaj artikal</li>
+
+            </ul>
+        </div>
+        <div class="dio prvi border-end border-white" onclick="window.location.href= '/trgovac/narudzbe'">
+            <div class="p-dio">
+                <p class="">Narudžbe</p>
+            </div>
+        </div>
+        <div class="dio prvi" onclick="prikaziDD3()">
+            <div class="p-dio">
+                <p class="">Profil</p>
+            </div>
+            <ul class="lista-dd" id="lista-dd3">
+                <li class="p-3 text-center" onclick="window.location.href= '/trgovac/urediProfil'">Uredi korisničke podatke</li>
+                <li class="p-3 text-center" onclick="window.location.href= '/trgovac/promijeniLozinku'">Promijeni lozinku</li>
+                <li class="p-3 text-center" onclick="window.location.href= '/trgovac/odjava'">Odjavi se</li>
+            </ul>
+        </div>
+
+    </navbar>
+</div>
+
+<main>
+    <table class="table my-5">
+        <tr>
+            <th>Naziv artikla</th>
+            <th>Cijena u KM</th>
+            <th>Dostupna količina</th>
+        </tr>
+        <%for(let i=0; i< spisakArtikala.length;i++) {%>
+            <tr>
+                <td class="fw-bolder"><%=spisakArtikala[i].naziv%></td>
+                <td class="fw-bolder"><%=spisakArtikala[i].cijena%></td>
+                <td class="fw-bolder"><%=spisakArtikala[i].dostupna_kolicina%></td>
+                <td><button class="btn btn-primary" onclick="window.location.href = '/trgovac/pogledajArtikal/<%=spisakArtikala[i].id%>'">
+                        Pogledaj artikal</button></td>
+                <td><button class="btn btn-primary" onclick="izbrisiArtikal('<%=spisakArtikala[i].id%>')">Izbrisi artikal</button></td>
+                <td><button class="btn btn-primary uredi-artikal" onclick="window.location.href = '/trgovac/urediArtikal/<%=spisakArtikala[i].id%>'">
+                        Uredi artikal</button></td>
+            </tr>
+        <%}%>
+    </table>
+</main>
+
+
+<script src="/javascripts/navbar.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+
+</body>
+</html>

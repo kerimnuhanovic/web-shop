@@ -1,0 +1,220 @@
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-weight: lighter;
+    font-size: 2vw;
+
+}
+
+
+navbar {
+    background-color: rgb(75, 79, 87);
+    color: white;
+    text-align: center;
+}
+header a {
+    text-decoration: none;
+    color: white;
+}
+header a:hover {
+    color: white;
+    background-color: rgb(27, 136, 204);
+}
+.f-cont {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+navbar p {
+    font-size: 2.5vw;
+}
+
+.h {
+    background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('/images/pomocne/Big_phone_with_cart.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+.okvir-navbara {
+    display: flex;
+    background-color: rgb(75, 79, 87);
+    height: 50px;
+
+
+}
+.dio {
+    width: 25%;
+    height: 100%;
+    cursor: pointer;
+
+}
+.
+.prvi {
+    background-color: blue;
+}
+.prvi:hover {
+    background-color: rgb(27, 136, 204);
+}
+li:hover {
+    background-color: rgb(27, 136, 204);
+}
+
+
+
+.p-dio {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+p {
+    color: white;
+
+    margin-bottom: 0;
+    padding: 0;
+
+}
+.lista-dd {
+    display: none;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    background-color: gray;
+    z-index: 2;
+    position: relative;
+
+}
+
+.lista-dd li {
+}
+
+
+
+
+
+
+main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+
+    background-color: #ecf0f1;
+}
+
+.card {
+    z-index: 1;
+    width: 8rem;
+}
+
+.card:hover {
+    cursor:pointer;
+    transform: scale(1.03);
+
+}
+
+.slika {
+    height: 4rem;
+    object-fit: contain;
+}
+.c-button {
+    font-size: 2vw;
+    background-color: rgb(35, 66, 89);
+}
+c-button:hover {
+    background-color: rgb(125, 183, 227);
+}
+.card-text {
+    font-weight: bolder;
+    color: rgb(171, 103, 7);
+    font-size: 3vw;
+}
+
+.trg-bar {
+    margin: 0;
+    width: 100%;
+    background-color: rgb(14, 52, 115);
+}
+.card-title {
+    font-size: 3vw;
+}
+
+
+
+@media (min-width: 576px) {
+    body {
+        font-size: 2vw;
+    }
+    .card {
+        width: 10rem;
+    }
+    .c-button {
+        font-size: 1.5vw;
+    }
+    .card-title {
+        font-size: 2vw;
+    }
+    .card-text {
+        font-size: 2vw;
+    }
+
+    navbar p {
+        font-size:2vw;
+    }
+
+}
+
+
+@media (min-width: 768px) {
+    body {
+        font-size: 1.5vw;
+    }
+    .c-button {
+        font-size: 1vw;
+    }
+    .card-title {
+        font-size: 1.5vw;
+    }
+    .card-text {
+        font-size: 1.5vw;
+    }
+    navbar p {
+        font-size:1.5vw;
+    }
+
+}
+@media (min-width: 992px) {
+    body {
+        font-size: 1vw;
+    }
+    .card {
+        width: 12rem;
+    }
+    .card-title {
+        font-size: 1vw;
+    }
+    .card-text {
+        font-size: 1vw;
+    }
+    navbar p {
+        font-size:1vw;
+    }
+
+
+}
+
+@media (min-width: 1200px) {
+    .card {
+        width: 15rem;
+    }
+    .slika {
+        height: 9rem;
+    }
+}

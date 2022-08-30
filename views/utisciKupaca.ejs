@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel='stylesheet' href='/stylesheets/utisciKupaca.css' />
+    <link rel='stylesheet' href='/stylesheets/headerKupac.css' />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        function posaljiKomentar() {
+            var komentar = document.getElementById('komentar').value;
+            var kupac = '<%=kupac.id%>';
+            var trgovac = '<%=podaciTrgovca.id%>';
+            $.ajax({
+                url: "/kupac/unesiKomentar/" + kupac + "/" + komentar + "/" + trgovac,
+                type: 'POST',
+            }).done(function(data) {
+                alert("gtv");
+                document.getElementById('komentar').innerHTML = "";
+                var dodatak = '<div class="komentar ms-4 mt-3">' +
+
+                    '<img src="/images/profilneSlike/<%=kupac.profilna_slika%>">' +
+                        '<div class="okvir-komentara ms-2">' +
+                            '<p style="color: #00B7FF" class="ms-3"><%=kupac.ime_kupca%></p>' +
+                            '<p class="ms-3"  style="overflow-wrap: break-word">' + komentar + '</p>'+
+                        '</div>'+
+                '</div>';
+
+                document.getElementById('main').innerHTML += dodatak;
+            });
+        }
+        function posaljiOcjenu(ocjena) {
+            $.ajax({
+                url: "/kupac/unesiOcjenu/<%=podaciTrgovca.id%>/" + ocjena,
+                type: 'POST',
+            }).done(function(data) {
+                alert("Ocijenili ste trgovca sa ocjenom: " + ocjena);
+            });
+
+        }
+    </script>
+    <title>WEB shop</title>
+</head>
+<body>
+<div class="header">
+    <header class="container-fluid">
+        <div class="h row pb-3">
+            <h1 class="text-center pt-3 display-3 text-white" style="text-shadow: 2px 2px black">WEB shop</h1><br>
+            <div class="f-cont">
+
+                <p class="fs-6 text-white" style="text-shadow: 1px 1px black">Pretražujte i uživajte u kopovini</p>
+
+            </div>
+        </div>
+    </header>
+
+    <navbar class="okvir-navbara">
+        <!--vase narudzbe, trgovine, urediprofil*/-->
+        <div class="dio prvi border-end border-white" onclick="window.location.href='/kupac/naslovna'">
+            <div class="p-dio">
+                <p class="">Naslovna</p>
+            </div>
+
+        </div>
+        <div class="dio prvi border-end border-white" onclick="prikaziDD2()">
+            <div class="p-dio">
+                <p class="">Trgovine</p>
+            </div>
+            <ul class="lista-dd" id="lista-dd2">
+                <li class="p-3 text-center" onclick="window.location.href='/kupac/pregledTrgovaca'">Trgovine</li>
+                <li class="p-3 text-center" onclick="window.location.href='/chat/kupac'">Chat</li>
+
+            </ul>
+
+        </div>
+        <div class="dio prvi border-end border-white" onclick="prikaziDD()">
+            <div class="p-dio">
+                <p class="">Narudžbe</p>
+            </div>
+            <ul class="lista-dd" id="lista-dd">
+                <li class="p-3 text-center" onclick="window.location.href='/kupac/prikaziKorpu'">Korpa</li>
+                <li class="p-3 text-center" onclick="window.location.href='/kupac/prikaziNarudzbe'">Narudžbe</li>
+
+            </ul>
+        </div>
+        <div class="dio prvi" onclick="prikaziDD3()">
+            <div class="p-dio">
+                <p class="">Profil</p>
+            </div>
+            <ul class="lista-dd" id="lista-dd3">
+                <li class="p-3 text-center" onclick="window.location.href='/kupac/urediProfilKupca'">Uredi profil</li>
+                <li class="p-3 text-center" onclick="window.location.href= '/kupac/odjava'">Odjavi se</li>
+
+            </ul>
+        </div>
+
+    </navbar>
+
+
+
+    <div class="select-bar mt-3 bg-light">
+        <div class="dugmici mb-3 mb-lg-0">
+            <button class="btn btn-primary obojeni-btn mx-4"
+                    onclick="window.location.href = '/kupac/pogledajKatalogTrgovca/<%=podaciTrgovca.id%>/sviArtikli/1'">Pogledaj katalog</button>
+            <button class="btn btn-primary obojeni-btn">Utisci kupaca</button>
+        </div>
+
+        <p class="display-6 naziv-trgovine"><%=podaciTrgovca.naziv%></p>
+        <div class="podaci-trgovca my-2 my-lg-0">
+            <p class="mx-3 mb-0" style="color: #00B7FF"><%=podaciTrgovca.adresa_sjedista%></p>
+            <p class="mx-3 mb-0"><%=podaciTrgovca.telefon%></p>
+            <p class="mx-3 mb-0" style="color: #00B7FF"><%=podaciTrgovca.email%></p>
+        </div>
+
+
+    </div>
+</div>
+
+<main class="mb-3" id="main">
+    <div class="rate ms-4 mt-3">
+        <p style="color: #222222" class="fw-bolder ocijeni-trgovca">Ocijeni trgovca:</p>
+        <div class="ms-4">
+            <div class="stars rate" data-percent="0">
+                <a href="?1" title="awful" onclick="posaljiOcjenu(1)">★</a>
+                <a href="?2" title="ok" onclick="posaljiOcjenu(2)">★</a>
+                <a href="?3" title="good" onclick="posaljiOcjenu(3)">★</a>
+                <a href="?4" title="great" onclick="posaljiOcjenu(4)">★</a>
+                <a href="?5" title="awesome" onclick="posaljiOcjenu(5)">★</a>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="komentar ms-4 mt-3">
+
+        <img src="/images/profilneSlike/<%=kupac.profilna_slika%>">
+        <div class="okvir-komentara ms-2">
+            <p style="color: #00B7FF" class="ms-3"><%=kupac.ime_kupca%></p>
+            <div style="display: flex;justify-content: space-between" class="mb-2">
+            <input type="text" id="komentar" placeholder="Komentarišite" class="ms-3 input-komentara">
+            <button onclick="posaljiKomentar()" class="btn btn-primary obojeni-btn me-3 objavi-btn">Objavi</button>
+            </div>
+        </div>
+    </div>
+
+    <%for (let i = 0; i < komentari.length; i++) {%>
+        <div class="komentar ms-4 mt-3">
+
+            <img src="/images/profilneSlike/<%=komentari[i].profilna_slika%>">
+            <div class="okvir-komentara ms-2">
+                <p style="color: #00B7FF" class="ms-3"><%=komentari[i].ime_kupca%></p>
+            <p class="ms-3"  style="overflow-wrap: break-word"><%=komentari[i].komentar%></p>
+            </div>
+        </div>
+    <%}%>
+</main>
+
+
+
+<script src="/javascripts/navbarKupac.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+
+</body>
+</html>

@@ -1,0 +1,255 @@
+main {
+    background-color: #ecf0f1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.okvir {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.prvi-div {
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #00B7FF;
+    background-color: rgba(255,255,255,0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    z-index: 1;
+    margin-top: -25px;
+}
+.drugi-div {
+    width: 100%;
+
+    border-radius: 5px;
+    border: 1px solid #00B7FF;
+    background-color: rgba(255,255,255,0.5);
+    z-index: 1;
+    margin-top: -28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.cjeloviti-prvi-div {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.cjeloviti-drugi-div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.div-forme {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+img {
+    z-index: 2;
+}
+
+.settings {
+
+    width: 50px;
+    height: 50px;
+}
+.password {
+    width: 100px;
+    height: 56px;
+}
+.forma1 {
+    margin-top: 25px;
+}
+
+.drugi-div h3{
+    margin-top: 28px;
+    color: #00B7FF;
+    font-weight: lighter;
+}
+.drugi-div input {
+    width: 50%;
+    border: 1px solid #00B7FF;
+    outline-color: #00B7FF;
+    font-size: 2.5vw;
+}
+
+.form-control {
+    font-size: 2.5vw;
+}
+
+.btn {
+    background-color: rgb(10, 174, 245);
+    width: 100%;
+    font-size: 2.5vw;
+}
+
+.btn-lozinka {
+    width: 50%;
+}
+
+@media (min-width: 576px) {
+
+
+    navbar p {
+        font-size: 2vw;
+    }
+    .okvir {
+        flex-wrap: nowrap;
+        margin-left: 10px;
+        margin-right: 10px;
+        align-items: flex-start;
+    }
+    main {
+        height: 77%;
+    }
+    .form-control {
+        font-size: 2vw;
+    }
+    .btn {
+        font-size: 2vw;
+    }
+    .drugi-div input {
+        font-size: 2vw;
+    }
+}
+@media (min-width: 768px) {
+
+
+    navbar p {
+        font-size: 1.5vw;
+    }
+    .btn {
+        font-size: 1.5vw;
+    }
+    .drugi-div input {
+        font-size: 1.5vw;
+    }
+
+    .form-control {
+        font-size: 1.5vw;
+    }
+    .cjeloviti-prvi-div {
+        width: 40%;
+    }
+    .cjeloviti-drugi-div {
+        width: 40%;
+    }
+    .okvir {
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+    .settings {
+
+        width: 70px;
+        height: 70px;
+    }
+    .password {
+        width: 130px;
+        height: 74px;
+    }
+    .prvi-div {
+        margin-top: -35px;
+    }
+    .forma1 {
+        margin-top: 35px;
+    }
+    .drugi-div {
+        margin-top: -37px;
+    }
+    .drugi-div h3 {
+        margin-top: 37px;
+    }
+    .drugi-div input {
+        width: 60%;
+    }
+    .btn-lozinka {
+        width: 60%;
+    }
+}
+
+@media (min-width: 992px) {
+
+    .cjeloviti-prvi-div {
+        width: 40%;
+    }
+    .cjeloviti-drugi-div {
+        width: 40%;
+    }
+    .btn {
+        font-size: 1vw;
+    }
+    .drugi-div input {
+        font-size: 1vw;
+    }
+
+    .form-control {
+        font-size: 1vw;
+        width: 50%;
+    }
+
+    navbar p {
+        font-size: 1vw;
+    }
+    .div-forme {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .okvir {
+        margin-right: 50px;
+        margin-left: 50px;
+    }
+    .btn {
+        width: 40%;
+    }
+    .btn-lozinka {
+        width: 50%;
+    }
+    .drugi-div input {
+        width: 50%;
+    }
+    .settings {
+
+        width: 100px;
+        height: 100px;
+    }
+    .password {
+        width: 160px;
+        height: 90px;
+    }
+    .prvi-div {
+        margin-top: -50px;
+    }
+    .forma1 {
+        margin-top: 50px;
+    }
+    .drugi-div {
+        margin-top: -45px;
+    }
+    .drugi-div h3 {
+        margin-top: 45px;
+    }
+
+
+}
+
+@media (min-width: 1200px) {
+
+}

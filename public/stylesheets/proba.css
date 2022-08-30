@@ -1,0 +1,131 @@
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-weight: lighter;
+    font-size: 2vw;
+
+}
+
+
+navbar {
+    background-color: rgb(75, 79, 87);
+    color: white;
+    text-align: center;
+}
+header a {
+    text-decoration: none;
+    color: white;
+}
+header a:hover {
+    color: white;
+    background-color: rgb(27, 136, 204);
+}
+.f-cont {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+navbar p {
+    font-size: 2.5vw;
+}
+
+.h {
+    background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('/images/pomocne/Big_phone_with_cart.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+.okvir-navbara {
+    display: flex;
+    background-color: rgb(75, 79, 87);
+    height: 50px;
+
+
+}
+.dio {
+    width: 25%;
+    height: 100%;
+    cursor: pointer;
+
+}
+.
+.prvi {
+    background-color: blue;
+}
+.prvi:hover {
+    background-color: rgb(27, 136, 204);
+}
+li:hover {
+    background-color: rgb(27, 136, 204);
+}
+
+
+
+.p-dio {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+p {
+    color: white;
+
+    margin-bottom: 0;
+    padding: 0;
+
+}
+.lista-dd {
+    display: none;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    background-color: gray;
+
+
+}
+
+.lista-dd li {
+
+}
+
+
+
+
+@media (min-width: 576px) {
+    body {
+        font-size: 2vw;
+    }
+    navbar p {
+        font-size:2vw;
+    }
+}
+
+@media (min-width: 768px) {
+    body {
+        font-size: 1.5vw;
+    }
+    navbar p {
+        font-size:1.5vw;
+    }
+
+}
+@media (min-width: 992px) {
+    body {
+        font-size: 1vw;
+    }
+    navbar p {
+        font-size:1vw;
+    }
+}
+
+
+@media (min-width: 1200px) {
+
+}
+

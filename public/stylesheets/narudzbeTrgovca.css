@@ -1,0 +1,75 @@
+
+main {
+    display: flex;
+    flex-direction: column;
+    background-color: #ecf0f1;
+}
+th {
+    color: #00B7FF;
+    ;
+}
+
+.kupac {
+    display: none;
+}
+
+.btn {
+    background-color: #00B7FF;
+    font-size: 2.5vw;
+}
+td {
+    font-size: 2.5vw;
+
+}
+.vrijeme-narudzbe {
+    display: none;
+}
+
+h1 {
+    color: #00B7FF;
+}
+
+
+@media (min-width: 576px) {
+
+    .btn {
+
+        font-size: 2vw;
+    }
+    td {
+        font-size: 2vw;
+    }
+
+    .vrijeme-narudzbe {
+        display: block;
+    }
+    .kupac {
+        display: block;
+    }
+}
+
+@media (min-width: 768px) {
+    .btn {
+
+        font-size: 1.5vw;
+    }
+    td {
+        font-size: 1.5vw;
+    }
+
+}
+@media (min-width: 992px) {
+    .btn {
+
+        font-size: 1vw;
+    }
+    td {
+        font-size: 1vw;
+    }
+}
+
+
+@media (min-width: 1200px) {
+
+}
+

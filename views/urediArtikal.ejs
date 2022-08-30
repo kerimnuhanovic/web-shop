@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Uredi artikal</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel='stylesheet' href='/stylesheets/urediArtikal.css' />
+    <link rel='stylesheet' href='/stylesheets/header.css' />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        function izvrsi_promjenu(atribut, id) {
+            console.log("usao");
+            var vrijednost = document.getElementById(atribut).value;
+            $.ajax({
+                url: "/trgovac/izvrsiPromjenuNaArtiklu/" + id + "/" + atribut + "/" + vrijednost,
+                type: 'POST',
+            }).done(function(data) {
+                alert("Promjena izvršena");
+            });
+        }
+        function promijeniKategorije(id) {
+            console.log(document.getElementById('kategorijeArtikla'));
+            var kategorije = document.getElementById('kategorijeArtikla').value;
+            console.log("evo ga");
+            console.log(kategorije);
+            $.ajax({
+                url: "/trgovac/promijeniKategorijeArtikla/" + id,
+                type: 'POST',
+                data: {kategorije:kategorije}
+            }).done(function(data) {
+                alert("GOTOVO");
+            });
+        }
+        function dodajNaNaslovnu(id) {
+            $.ajax({
+                url: "/trgovac/dodajArtikalNaNaslovnu/" + id,
+                type: 'POST',
+            }).done(function(data) {
+                console.log(data);
+                if(data === "ok") {
+                    alert("Artikal je dodat na naslovnu");
+                }
+                else alert("Previše artikala na naslovnoj stranici");
+            });
+        }
+        function izbrisiSaNaslovne(id) {
+            $.ajax({
+                url: "/trgovac/ukloniArtikalSaNaslovne/" + id,
+                type: 'POST',
+            }).done(function(data) {
+                alert("Artikal je uklonjen sa naslovne stranice vašeg profila");
+            });
+        }
+    </script>
+</head>
+<body>
+
+
+<div class="header">
+    <header class="container-fluid">
+        <div class="h row pb-3">
+            <h1 class="text-center pt-3 display-3 text-white" style="text-shadow: 2px 2px black">WEB shop</h1><br>
+            <div class="f-cont">
+
+                <p class="fs-6 text-white" style="text-shadow: 1px 1px black">Pretražujte i uživajte u kopovini</p>
+
+            </div>
+        </div>
+    </header>
+
+    <navbar class="okvir-navbara">
+        <!--vase narudzbe, trgovine, urediprofil*/-->
+        <div class="dio prvi border-end border-white" onclick="prikaziDD()">
+            <div class="p-dio">
+                <p class="">Trgovine</p>
+            </div>
+            <ul class="lista-dd" id="lista-dd">
+                <li class="p-3 text-center" onclick="window.location.href= '/trgovac/profil'">Vaša trgovina</li>
+                <li class="p-3 text-center" onclick="window.location.href= '/chat/trgovac'">Chat sa kupcima</li>
+
+            </ul>
+        </div>
+        <div class="dio prvi border-end border-white" onclick="prikaziDD2()">
+            <div class="p-dio">
+                <p class="">Vaši artikli</p>
+            </div>
+            <ul class="lista-dd" id="lista-dd2">
+                <li class="p-3 text-center" onclick="window.location.href= '/trgovac/spisakArtikala'">Spisak artikala</li>
+                <li class="p-3 text-center" onclick="window.location.href= '/trgovac/dodajArtikal'">Dodaj artikal</li>
+
+            </ul>
+        </div>
+        <div class="dio prvi border-end border-white" onclick="window.location.href= '/trgovac/narudzbe'">
+            <div class="p-dio">
+                <p class="">Narudžbe</p>
+            </div>
+        </div>
+        <div class="dio prvi" onclick="prikaziDD3()">
+            <div class="p-dio">
+                <p class="">Profil</p>
+            </div>
+            <ul class="lista-dd" id="lista-dd3">
+                <li class="p-3 text-center" onclick="window.location.href= '/trgovac/urediProfil'">Uredi korisničke podatke</li>
+                <li class="p-3 text-center" onclick="window.location.href= '/trgovac/promijeniLozinku'">Promijeni lozinku</li>
+                <li class="p-3 text-center" onclick="window.location.href= '/trgovac/odjava'">Odjavi se</li>
+
+            </ul>
+        </div>
+
+    </navbar>
+</div>
+
+
+
+
+
+<main>
+    <h1 class="display-6 mt-3 text-center" style="color: #00B7FF">Uredi artikal</h1>
+    <table class="table mt-4">
+        <tr>
+            <td><input type="text" id="naziv" value="<%=artikal.naziv%>" class="inpt"></td>
+            <td><button class="btn btn-primary" onclick="izvrsi_promjenu('naziv', '<%=artikal.id%>')">Promijeni naziv</button> </td>
+        </tr>
+        <tr>
+            <td><input type="text" id="opis" value="<%=artikal.opis%>" class="inpt"></td>
+            <td><button class="btn btn-primary" onclick="izvrsi_promjenu('opis', '<%=artikal.id%>')">Promijeni opis</button></td>
+        </tr>
+
+        <tr>
+            <td><input type="number" id="dostupna_kolicina" value="<%=artikal.dostupna_kolicina%>" class="inpt"></td>
+            <td><button class="btn btn-primary" onclick="izvrsi_promjenu('dostupna_kolicina', '<%=artikal.id%>')">Promijeni količinu</button></td>
+        </tr>
+
+        <tr>
+            <td><input type="number" id="cijena" value="<%=artikal.cijena%>" step=".01" class="inpt"></td>
+            <td><button class="btn btn-primary" onclick="izvrsi_promjenu('cijena', '<%=artikal.id%>')">Promijeni cijenu</button></td>
+        </tr>
+
+        <tr>
+            <td><input type="text" id="tagovi" value="<%=artikal.tagovi%>" class="inpt"></td>
+            <td><button class="btn btn-primary" onclick="izvrsi_promjenu('tagovi', '<%=artikal.id%>')">Promijeni tagove</button></td>
+        </tr>
+        <tr>
+            <td>Dodajte artikal na naslovnu stranicu vašeg profila</td>
+            <td><button class="btn btn-primary" onclick="dodajNaNaslovnu('<%=artikal.id%>')">
+                    Dodaj na naslovnu</button></td>
+        </tr>
+
+        <%if (artikal.na_pocetnoj_profila === 'da') {%>
+        <tr>
+            <td>Izbrisi artikal sa naslovne stranice vašeg profila</td>
+            <td><button class="btn btn-primary" onclick="izbrisiSaNaslovne('<%=artikal.id%>')">
+                    Izbrisi sa naslovne</button></td>
+        </tr>
+
+        <%}%>
+        <tr>
+            <form method="post" action="/trgovac/promijeniKategorijeArtikla/<%=artikal.id%>" class="mx-3">
+
+
+                <td>
+                    <select id="kategorijeArtikla" name="kategorijeArtikla" multiple>
+                        <%for(let i=0;i<cat.length;i++) {%>
+                        <option value="<%=cat[i].id%>"><%=cat[i].kategorija%></option>
+                        <%}%>
+                    </select>
+                </td>
+                <td>
+                    <input type="submit" value="Promijeni kategorije" class="btn btn-primary">
+                </td>
+
+
+            </form>
+        </tr>
+        <tr>
+            <td><label for="naslovnaSLika" class="form-label">Odaberite naslovnu sliku</label></td>
+        </tr>
+        <tr>
+            <form method="post" action="/trgovac/promijeniNaslovnuSlikuArtikla/<%=artikal.id%>" enctype="multipart/form-data" class="mx-3">
+
+
+                <td>
+                    <input class="form-control" type="file" id="naslovnaSLika" name="naslovnaSlika">
+                </td>
+                <td>
+                    <input type="submit" value="Promijeni naslovnu" class="btn btn-primary">
+                </td>
+                <!--
+                <label for="naslovnaSlika">Odaberite naslovnu sliku</label>
+                <input type="file" id="naslovnaSlika" name="naslovnaSlika">
+                -->
+            </form>
+
+        </tr>
+    </table>
+
+
+
+
+
+</main>
+
+
+<script src="/javascripts/navbar.js"></script>
+</body>
+</html>

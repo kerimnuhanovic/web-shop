@@ -1,0 +1,80 @@
+html, body {
+    width: 100%;
+    height: 100%;/*
+    background-image: linear-gradient(rgb(10, 101, 247),rgb(51, 81, 130));
+*/
+    background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('/images/pomocne/Big_phone_with_cart.jpg');
+    background-position: top;
+    background-size: cover;
+}
+.navb {
+    background-color: rgb(60, 66, 71);
+}
+
+.h {
+    display: flex;
+    height: 45%;
+    justify-content: center;
+    align-items: flex-end;
+}
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 45%;
+}
+
+
+
+.kupac {
+    background-color: rgb(62, 104, 135);
+    width: 30%;
+}
+.kupac:hover {
+    background-color: rgb(125, 183, 227);
+    transform: scale(1.03);
+}
+.trgovac:hover {
+    background-color: rgb(125, 183, 227);
+    transform: scale(1.03);
+}
+.trgovac {
+    background-color: rgb(35, 66, 89);
+    width: 30%;
+
+
+
+}
+
+
+
+@media (min-width:768px) {
+    .kupac {
+        font-size: 1.5vw;
+    }
+    .trgovac {
+        font-size: 1.5vw;
+    }
+
+}
+
+@media (min-width: 992px) {
+    .kupac {
+        font-size: 1vw;
+    }
+    .trgovac {
+        font-size: 1vw;
+    }
+}
+
+
+
+
+/*
+
+<button onclick="window.location.href = '/registracija/kupac'" class="btn btn-danger">Kupac</button>
+
+    <button onclick="window.location.href = '/registracija/trgovac'" class="btn btn-success">Trgovac</button>
+
+
+ */

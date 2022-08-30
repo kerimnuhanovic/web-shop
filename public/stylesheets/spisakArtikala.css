@@ -1,0 +1,88 @@
+
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ecf0f1;
+}
+table {
+    background-color: rgba(255,255,255,0.5);
+}
+.btn {
+    background-color: rgb(10, 174, 245);
+    font-size: 2.1vw;
+}
+
+th {
+    color: rgb(10, 174, 245);
+    font-size: 2.5vw;
+}
+td {
+    font-size: 2.5vw;
+}
+
+.uredi-artikal {
+    display: none;
+}
+
+@media (min-width: 576px) {
+
+    .btn {
+
+        font-size: 2vw;
+    }
+
+    th {
+
+        font-size: 2vw;
+    }
+    td {
+        font-size: 2vw;
+    }
+
+
+    .uredi-artikal {
+        display: block;
+    }
+}
+
+
+@media (min-width: 768px) {
+
+    .btn {
+
+        font-size: 1.5vw;
+    }
+
+    th {
+
+        font-size: 1.5vw;
+    }
+    td {
+        font-size: 1.5vw;
+    }
+
+}
+@media (min-width: 992px) {
+
+    .btn {
+
+         font-size: 1vw;
+     }
+
+    th {
+
+        font-size: 1vw;
+    }
+    td {
+        font-size: 1vw;
+    }
+
+
+
+}
+
+@media (min-width: 1200px) {
+
+}

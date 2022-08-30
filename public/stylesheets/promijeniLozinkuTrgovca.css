@@ -1,0 +1,126 @@
+
+
+main {
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #ecf0f1;
+}
+.segment-diva {
+    display: flex;
+    justify-content: center;
+}
+.segment-diva input {
+    width: 50%;
+    border: 1px solid #00B7FF;
+    outline-color: #00B7FF;
+}
+.okvir {
+    width: 60%;
+    border: 1px solid #00B7FF;
+    background-color: rgba(255,255,255,0.5);
+    z-index: 1;
+    margin-top: -22px;
+}
+.okvir h1 {
+    color: #00B7FF;
+    text-shadow: 2px 2px white;
+}
+
+.image {
+    z-index: 2;
+}
+img {
+    width: 80px;
+    height: 44px;
+}
+.btn {
+    background-color: rgb(10, 174, 245);
+    font-size: 2vw;
+    width: 50%;
+}
+
+input {
+    font-size: 2.5vw;
+}
+
+@media (min-width: 576px) {
+
+    img {
+        width: 100px;
+        height: 56px;
+    }
+    .okvir {
+        margin-top: -28px;
+    }
+
+    input {
+        font-size: 2.2vw;
+    }
+}
+
+
+@media (min-width: 768px) {
+
+    .okvir {
+        width: 50%;
+    }
+    .btn {
+        font-size: 1.5vw;
+    }
+    .form-control {
+        font-size: 1.5vw;
+    }
+    img {
+        width: 130px;
+        height: 72px;
+    }
+    .okvir {
+        margin-top: -36px;
+    }
+
+    input {
+        font-size: 2vw;
+    }
+
+}
+@media (min-width: 992px) {
+
+    .okvir {
+        width: 40%;
+    }
+    .btn {
+        font-size: 1vw;
+    }
+    .form-control {
+        font-size: 1vw;
+    }
+    img {
+        width: 170px;
+        height: 94px;
+    }
+    .okvir {
+        margin-top: -47px;
+    }
+
+    input {
+        font-size: 1.5vw;
+    }
+
+}
+
+@media (min-width: 1200px) {
+    img {
+        width:180px;
+        height:100px;
+    }
+    .okvir {
+        margin-top: -50px;
+    }
+
+    input {
+        font-size: 1vw;
+    }
+}
